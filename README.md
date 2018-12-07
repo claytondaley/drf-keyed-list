@@ -12,6 +12,12 @@ value from the object (often a `pk`) is used as the key in the dict.  For exampl
 }
 ```
 
+# Install
+
+run `pip install drf-keyed-list`
+
+# Usage
+
 The following is a usage example:
 
 ```
