@@ -58,6 +58,11 @@ serializer.is_valid()
 serializer.save()
 ```
 
+NOTE: `keyed_list_serializer_field` ***MUST*** refer to a Unique field or key collision may occur during serialization,
+plus undefined deserializaiton behavior if used in combination with nested writable serializers (e.g.
+[drf-writable-nested](https://github.com/beda-software/drf-writable-nested)).  At this time, the package does not
+make any effort to verify that a Unique field has been selected.
+
 Authors
 =======
 2018, Clayton Daley III
