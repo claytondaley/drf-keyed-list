@@ -14,7 +14,7 @@ value from the object (often a `pk`) is used as the key in the dict.  For exampl
 
 # Install
 
-run `pip install drf-keyed-list`
+`pip install drf-keyed-list`
 
 # Usage
 
@@ -52,7 +52,7 @@ keyed_list = {
 }
 
 # many=True will trigger the keyed-list behavior
-serializer = MySerializer(data=instance, many=True)
+serializer = MySerializer(data=keyed_list, many=True)
 # this should also work
 serializer.is_valid()
 serializer.save()
