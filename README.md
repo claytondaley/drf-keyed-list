@@ -63,6 +63,17 @@ plus undefined deserializaiton behavior if used in combination with nested writa
 [drf-writable-nested](https://github.com/beda-software/drf-writable-nested)).  At this time, the package does not
 make any effort to verify that a Unique field has been selected.
 
+## Non-String Keys (e.g. UUIDs)
+
+Per the [JSON RFC](https://tools.ietf.org/html/rfc7159.html#section-4) the keys (a.k.a. "names") in a JSON structure 
+must be strings.  The JSON Encoder Py2 only accepts strings; in Py3, the encoder accepts some additional types (i.e. 
+`int`, `float`, `bool` or `None`), but these must eventually be converted to strings.  Other types are not supported,
+including common key types like UUID.
+
+Per the discussion in issue #6, the recommended strategy for non-string keys is to use an expicit (if necessary, custom)
+serializer field.  This field should implement `to_representation` and `to_internal_value` to convert the data to a 
+string. For a UUID, the built-in `UUIDField` is sufficient.
+
 Authors
 =======
 2018, Clayton Daley III
