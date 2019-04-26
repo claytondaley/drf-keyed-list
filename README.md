@@ -6,21 +6,27 @@ value from the object (often a `pk`) is used as the key in the dict.  For exampl
 
 ```
 {
-    "1": {<other fields for object with id 1>},
-    "2": {<other fields for object with id 2>},
+    "1": {
+        <other fields for object with id 1> 
+    },
+    "2": {
+        <other fields for object with id 2>
+    },
     ...
 }
 ```
 
 # Install
 
-`pip install drf-keyed-list`
+```
+pip install drf-keyed-list
+```
 
 # Usage
 
 The following is a usage example:
 
-```
+```python
 class MySerializer(ModelSerializer):
 
     class Meta:
@@ -30,7 +36,7 @@ class MySerializer(ModelSerializer):
 
 By replacing the `list_serializer_class`, this behavior will only be enabled when the `many=True` flag is used:
 
-```
+```python
 instance = {
    "id": "pk_val",
    "field1": "val1",
@@ -66,7 +72,7 @@ make any effort to verify that a Unique field has been selected.
 ## Non-String Keys (e.g. UUIDs)
 
 Per the [JSON RFC](https://tools.ietf.org/html/rfc7159.html#section-4) the keys (a.k.a. "names") in a JSON structure 
-must be strings.  The JSON Encoder Py2 only accepts strings; in Py3, the encoder accepts some additional types (i.e. 
+must be strings.  The JSON Encoder in Py2 only accepts strings; in Py3, the encoder accepts some additional types (i.e. 
 `int`, `float`, `bool` or `None`), but these must eventually be converted to strings.  Other types are not supported,
 including common key types like UUID.
 
