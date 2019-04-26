@@ -6,21 +6,27 @@ value from the object (often a `pk`) is used as the key in the dict.  For exampl
 
 ```
 {
-    "1": {<other fields for object with id 1>},
-    "2": {<other fields for object with id 2>},
+    "1": {
+        <other fields for object with id 1> 
+    },
+    "2": {
+        <other fields for object with id 2>
+    },
     ...
 }
 ```
 
 # Install
 
-`pip install drf-keyed-list`
+```
+pip install drf-keyed-list
+```
 
 # Usage
 
 The following is a usage example:
 
-```
+```python
 class MySerializer(ModelSerializer):
 
     class Meta:
@@ -30,7 +36,7 @@ class MySerializer(ModelSerializer):
 
 By replacing the `list_serializer_class`, this behavior will only be enabled when the `many=True` flag is used:
 
-```
+```python
 instance = {
    "id": "pk_val",
    "field1": "val1",
