@@ -18,5 +18,3 @@ class KeyedListSerializer(ListSerializer):
         response = super().to_representation(data)
         return {v.pop(self._keyed_field): v for v in response}
 
-    def is_valid(self, raise_exception=False):
-        return super().is_valid(raise_exception)
