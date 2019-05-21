@@ -27,6 +27,8 @@ pip install drf-keyed-list
 The following is a usage example:
 
 ```python
+from drf_keyed_list import KeyedListSerializer
+
 class MySerializer(ModelSerializer):
 
     class Meta:
@@ -41,7 +43,7 @@ instance = {
    "id": "pk_val",
    "field1": "val1",
    "field2": "val2",
-   ...
+   # ...
 }
 
 serializer = MySerializer(data=instance)
@@ -53,7 +55,7 @@ keyed_list = {
    "pk_val": {
        "field1": "val1",
        "field2": "val2",
-       ...
+       # ...
    }
 }
 
